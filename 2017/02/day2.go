@@ -3,11 +3,11 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"os"
 	"strings"
 	"strconv"
 	"path"
 	"runtime"
+	"advent-of-code/2017/goUtils"
 )
 
 func main() {
@@ -29,17 +29,8 @@ func main() {
 }
 
 
-func getFile(path string) *os.File {
-	file, err := os.Open(path)
-	if err != nil {
-		fmt.Printf("Error: %s", err)
-		return nil
-	}
-	return file
-}
-
 func runPartOne(filePath string) int {
-	file := getFile(filePath)
+	file := goUtils.GetFile(filePath)
 	if file == nil {
 		return 0
 	}

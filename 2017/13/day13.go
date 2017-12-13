@@ -1,13 +1,13 @@
 package main
 
 import (
-	"os"
 	"fmt"
 	"bufio"
 	"strings"
 	"strconv"
 	"path"
 	"runtime"
+	"advent-of-code/2017/goUtils"
 )
 
 
@@ -31,15 +31,6 @@ func main() {
 }
 
 
-func getFile(path string) *os.File {
-	file, err := os.Open(path)
-	if err != nil {
-		fmt.Printf("Error: %s\n", err)
-		return nil
-	}
-	return file
-}
-
 
 type Depth struct  {
 	depthVal, scannerRange int
@@ -56,7 +47,7 @@ func newDepth(depthVal, scannerRange int) *Depth {
 func buildDepths(filePath string) map[int]*Depth {
 	depths := make(map[int]*Depth)
 
-	file := getFile(filePath)
+	file := goUtils.GetFile(filePath)
 
 	defer file.Close()
 
