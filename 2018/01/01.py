@@ -10,6 +10,7 @@ def find_repeated_frequency(frequency_changes):
         frequency += frequency_changes[i]
         if (visited.get(frequency) != None):
             return frequency
+
         visited[frequency] = True
         i = (i + 1) % len(frequency_changes)
 
